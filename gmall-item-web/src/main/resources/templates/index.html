@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <h2>Hello World!!!</h2><br/>
+
+
+    <!--取值-->
+    <p th:text="${hello}">打底值</p><br/>
+
+
+    <!--循环-->
+    <p th:each="str:${lists}" th:text="${str}"></p>
+
+    <p th:each="str:${lists}">
+        <input th:value="${str}"/>
+    </p>
+
+    <!--判断-->
+    <p th:text="(${number} == 200)?'right':'fault'"/>
+    <p th:if="1 == 1">It`s right.</p><br/>
+
+
+    <!--页面引入-->
+    <h2 th:include="indexInner::partPage"/>
+
+    <!--传值给javascript-->
+    <a href="javascript:f()">Click here.</a>
+
+</body>
+<script language="JavaScript">
+    function f() {
+        alert("Hello");
+    }
+</script>
+</html>
